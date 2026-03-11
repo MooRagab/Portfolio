@@ -325,6 +325,27 @@ input, textarea {
     gap: 4rem;
 }
 
+.hero-avatar {
+    flex: 0 0 320px;
+    max-width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 0 15px rgba(252, 238, 10, 0.4)); /* Subtle neon shadow instead of frame */
+    transition: transform 0.3s ease;
+}
+
+.hero-avatar:hover {
+    transform: translateY(-10px);
+}
+
+.pixel-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    image-rendering: pixelated; /* Perfect for pixel art */
+}
+
 .hero-content {
     flex: 1;
 }
@@ -477,6 +498,7 @@ input, textarea {
     .hero-container {
         flex-direction: column;
         text-align: center;
+        gap: 2rem;
     }
 
     .hero .description {
