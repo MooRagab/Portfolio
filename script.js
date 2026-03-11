@@ -36,24 +36,30 @@ function drawCursor() {
 drawCursor();
 
 // Increase cursor outline on hover over interactive elements
-const interactives = document.querySelectorAll('a, button, .mobile-toggle');
+const interactives = document.querySelectorAll('a, button, .mobile-toggle, input, textarea');
 
 interactives.forEach(el => {
     el.addEventListener('mouseenter', () => {
-        if (cursorOutline) {
-            cursorOutline.style.width = '40px';
-            cursorOutline.style.height = '40px';
-            cursorOutline.style.transform = `translate(-50%, -50%) rotate(45deg)`;
-            cursorOutline.style.borderColor = 'var(--primary)';
+        if (cursorOutline && cursorDot) {
+            cursorOutline.style.width = '50px';
+            cursorOutline.style.height = '50px';
+            cursorOutline.style.borderColor = 'var(--secondary)';
+            cursorOutline.style.boxShadow = '0 0 25px rgba(255, 0, 60, 0.6) inset, 0 0 25px rgba(255, 0, 60, 0.6)';
+            
+            cursorDot.style.backgroundColor = 'var(--secondary)';
+            cursorDot.style.boxShadow = '0 0 10px var(--secondary), 0 0 20px var(--secondary)';
         }
     });
     
     el.addEventListener('mouseleave', () => {
-        if (cursorOutline) {
-            cursorOutline.style.width = '30px';
-            cursorOutline.style.height = '30px';
-            cursorOutline.style.transform = `translate(-50%, -50%) rotate(0deg)`;
+        if (cursorOutline && cursorDot) {
+            cursorOutline.style.width = '35px';
+            cursorOutline.style.height = '35px';
             cursorOutline.style.borderColor = 'var(--accent)';
+            cursorOutline.style.boxShadow = '0 0 15px rgba(0, 240, 255, 0.4) inset, 0 0 15px rgba(0, 240, 255, 0.4)';
+            
+            cursorDot.style.backgroundColor = 'var(--primary)';
+            cursorDot.style.boxShadow = '0 0 10px var(--primary), 0 0 20px var(--primary)';
         }
     });
 });
