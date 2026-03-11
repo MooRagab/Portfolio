@@ -26,6 +26,28 @@
     --code-boolean: #fcee0a;
 }
 
+/* Light Theme Overrides (Day City Cyberpunk) */
+body.light-theme {
+    --bg-dark: #f0f0f5; /* Light gray background */
+    --bg-darker: #e5e5eb;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --text-main: #111827;
+    --text-muted: #4b5563;
+    
+    /* Adjusted neon colors for light mode visibility */
+    --primary: #d600b3; /* Neon Magenta */
+    --secondary: #0044ff; /* Deep Neon Blue */
+    --accent: #ffae00; /* Neon Orange */
+
+    /* Code Block Adjusted Colors */
+    --code-keyword: #d600b3;
+    --code-variable: #0044ff;
+    --code-property: #c20000;
+    --code-string: #008800;
+    --code-function: #5700d6;
+    --code-boolean: #d600b3;
+}
+
 /* Reset */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -267,6 +289,21 @@ input, textarea {
 
 .nav-link:hover::after, .nav-link.active::after {
     width: 100%;
+}
+
+.theme-toggle {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    cursor: auto /* better for toggle accessibility */;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    color: var(--primary);
+    transform: rotate(15deg) scale(1.1);
 }
 
 .mobile-toggle {

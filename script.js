@@ -65,6 +65,43 @@ interactives.forEach(el => {
 });
 
 /* ==========================================
+   Theme Toggle Logic
+   ========================================== */
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+const savedTheme = localStorage.getItem('portfolio-theme');
+
+// Apply saved theme on load
+if (savedTheme === 'light') {
+    document.body.classList.add('light-theme');
+    if (themeIcon) {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-theme');
+        const isLight = document.body.classList.contains('light-theme');
+        
+        // Save preference
+        localStorage.setItem('portfolio-theme', isLight ? 'light' : 'dark');
+        
+        // Toggle Icon
+        if (themeIcon) {
+            if (isLight) {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        }
+    });
+}
+
+/* ==========================================
    Navbar Scroll Effect
    ========================================== */
 const navbar = document.getElementById('navbar');
