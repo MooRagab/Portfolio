@@ -679,3 +679,63 @@ input, textarea {
         padding: 2rem;
     }
 }
+
+/* =========================================
+   Contact Form Styles
+   ========================================= */
+.contact-form {
+    max-width: 100%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-input::placeholder {
+    color: var(--text-muted);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.contact-form .btn {
+    width: 100%;
+    border: none;
+    margin-top: 0.5rem;
+}
+
+.contact-form button {
+    cursor: pointer;
+}
+
+.contact-alternatives {
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 2rem;
+}
+
+.contact-alternatives p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}

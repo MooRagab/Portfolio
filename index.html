@@ -243,9 +243,31 @@
                     <p class="contact-text">
                         I'm currently open to new opportunities! Whether you have a question, a project proposal, or just want to say hi, feel free to reach out. I'll get back to you as soon as possible.
                     </p>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="https://wa.me/201004068671" target="_blank" class="btn btn-primary contact-btn">WhatsApp Me <i class="fab fa-whatsapp"></i></a>
-                        <a href="mailto:mohamedragab222@gmail.com" class="btn btn-outline contact-btn">Email Me <i class="fas fa-envelope"></i></a>
+                    
+                    <form action="https://formsubmit.co/rmidoragab222@gmail.com" method="POST" class="contact-form">
+                        <!-- Disable Captcha (Optional: remove this line if you want the captcha protection) -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="New message from your Portfolio!">
+                        <input type="hidden" name="_template" value="table">
+                        
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-input" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" class="form-input" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary contact-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+
+                    <div class="contact-alternatives">
+                        <p>Or reach me via:</p>
+                        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                            <a href="https://wa.me/201004068671" target="_blank" class="btn btn-outline contact-btn">WhatsApp <i class="fab fa-whatsapp"></i></a>
+                            <a href="mailto:rmidoragab222@gmail.com" class="btn btn-outline contact-btn">Email <i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
