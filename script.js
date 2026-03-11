@@ -41,19 +41,19 @@ const interactives = document.querySelectorAll('a, button, .mobile-toggle');
 interactives.forEach(el => {
     el.addEventListener('mouseenter', () => {
         if (cursorOutline) {
-            cursorOutline.style.width = '60px';
-            cursorOutline.style.height = '60px';
-            cursorOutline.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-            cursorOutline.style.borderColor = 'transparent';
+            cursorOutline.style.width = '40px';
+            cursorOutline.style.height = '40px';
+            cursorOutline.style.transform = `translate(-50%, -50%) rotate(45deg)`;
+            cursorOutline.style.borderColor = 'var(--primary)';
         }
     });
     
     el.addEventListener('mouseleave', () => {
         if (cursorOutline) {
-            cursorOutline.style.width = '40px';
-            cursorOutline.style.height = '40px';
-            cursorOutline.style.backgroundColor = 'transparent';
-            cursorOutline.style.borderColor = 'var(--text-muted)';
+            cursorOutline.style.width = '30px';
+            cursorOutline.style.height = '30px';
+            cursorOutline.style.transform = `translate(-50%, -50%) rotate(0deg)`;
+            cursorOutline.style.borderColor = 'var(--accent)';
         }
     });
 });

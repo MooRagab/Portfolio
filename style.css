@@ -130,34 +130,50 @@ ul {
     background: var(--secondary);
 }
 
-/* Custom Cursor */
+/* Custom Cursor - Gaming Crosshair Style */
 .cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--text-main);
-    border-radius: 50%;
+    width: 4px;
+    height: 4px;
+    background-color: var(--primary);
     position: fixed;
     top: 0;
     left: 0;
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 9999;
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    box-shadow: 0 0 10px var(--primary);
+    transition: width 0.1s, height 0.1s;
 }
 
 .cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--text-muted);
-    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--accent);
     position: fixed;
     top: 0;
     left: 0;
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 9998;
-    transition: width 0.2s, height 0.2s, border-color 0.2s;
+    transition: width 0.15s, height 0.15s, border-color 0.15s, transform 0.15s;
     transition-timing-function: ease-out;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3) inset, 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.cursor-outline::before, .cursor-outline::after {
+    content: '';
+    position: absolute;
+    background: var(--accent);
+}
+
+.cursor-outline::before {
+    top: 50%; left: -5px; right: -5px; height: 1px;
+    transform: translateY(-50%);
+}
+
+.cursor-outline::after {
+    left: 50%; top: -5px; bottom: -5px; width: 1px;
+    transform: translateX(-50%);
 }
 
 /* Form inputs hover cursor override (better usability) */
