@@ -1,28 +1,29 @@
-/* Custom Properties */
+/* Custom Properties - Cyberpunk / Gaming Theme */
 :root {
-    --bg-dark: #0f172a;
-    --bg-darker: #020617;
-    --card-bg: rgba(30, 41, 59, 0.7);
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
+    --bg-dark: #09090b; /* Deep almost absolute black */
+    --bg-darker: #050505;
+    --card-bg: rgba(9, 9, 11, 0.85);
+    --text-main: #fcfcfc;
+    --text-muted: #a1a1aa;
     
-    --primary: #3b82f6; /* Blue */
-    --secondary: #8b5cf6; /* Purple */
-    --accent: #06b6d4; /* Cyan */
+    /* Cyberpunk Neons */
+    --primary: #fcee0a; /* Cyberpunk Yellow */
+    --secondary: #ff003c; /* Aggressive Red/Pink */
+    --accent: #00f0ff; /* Neon Cyan */
     
-    --font-heading: 'Poppins', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
     --font-code: 'Fira Code', monospace;
     
-    --transition: all 0.3s ease;
+    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     
-    /* Code formatting colors */
-    --code-keyword: #c678dd;
-    --code-variable: #e06c75;
-    --code-property: #d19a66;
-    --code-string: #98c379;
-    --code-function: #61afef;
-    --code-boolean: #d19a66;
+    /* Code formatting colors - adjusted for high contrast */
+    --code-keyword: #ff003c;
+    --code-variable: #00f0ff;
+    --code-property: #fcee0a;
+    --code-string: #39ff14; /* Neon Green */
+    --code-function: #b026ff;
+    --code-boolean: #fcee0a;
 }
 
 /* Reset */
@@ -97,19 +98,19 @@ ul {
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 0 10px rgba(255, 0, 60, 0.5); /* Neon pink glow */
 }
 
 /* Background Effects */
 .bg-glow {
     position: absolute;
-    border-radius: 50%;
     filter: blur(150px);
     z-index: -1;
-    opacity: 0.4;
+    opacity: 0.3;
     pointer-events: none;
 }
 
@@ -168,32 +169,39 @@ input, textarea {
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
-    border-radius: 30px;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     transition: var(--transition);
     border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    background: var(--primary);
+    color: var(--bg-darker);
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 15px rgba(252, 238, 10, 0.5);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+    background: transparent;
+    color: var(--primary);
+    box-shadow: 0 0 30px rgba(252, 238, 10, 0.8);
 }
 
 .btn-outline {
-    border-color: var(--primary);
-    color: var(--primary);
+    border-color: var(--accent);
+    color: var(--accent);
     background: transparent;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2) inset;
 }
 
 .btn-outline:hover {
-    background: rgba(59, 130, 246, 0.1);
-    transform: translateY(-3px);
+    background: rgba(0, 240, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5) inset, 0 0 20px rgba(0, 240, 255, 0.5);
 }
 
 /* Navbar */
@@ -249,8 +257,9 @@ input, textarea {
     bottom: -5px;
     left: 0;
     width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
+    height: 3px;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
     transition: var(--transition);
 }
 
@@ -315,10 +324,29 @@ input, textarea {
 
 .glass-card {
     background: var(--card-bg);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    border-radius: 0; /* Blocky edges for cyberpunk */
+    box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.05), 0 0 20px rgba(0, 240, 255, 0.1);
+    position: relative;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px;
+    width: 10px; height: 10px;
+    border-top: 2px solid var(--accent);
+    border-left: 2px solid var(--accent);
+}
+
+.glass-card::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; right: -2px;
+    width: 10px; height: 10px;
+    border-bottom: 2px solid var(--primary);
+    border-right: 2px solid var(--primary);
 }
 
 .code-window {
@@ -497,6 +525,86 @@ input, textarea {
 .reveal-right.active {
     opacity: 1;
     transform: translate(0);
+}
+
+/* =========================================
+   Glitch Effect
+   ========================================= */
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-dark);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--secondary);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--accent);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(65px, 9999px, 100px, 0); }
+    5% { clip: rect(52px, 9999px, 74px, 0); }
+    10% { clip: rect(79px, 9999px, 85px, 0); }
+    15% { clip: rect(75px, 9999px, 15px, 0); }
+    20% { clip: rect(67px, 9999px, 60px, 0); }
+    25% { clip: rect(96px, 9999px, 4px, 0); }
+    30% { clip: rect(59px, 9999px, 73px, 0); }
+    35% { clip: rect(98px, 9999px, 68px, 0); }
+    40% { clip: rect(10px, 9999px, 3px, 0); }
+    45% { clip: rect(5px, 9999px, 46px, 0); }
+    50% { clip: rect(32px, 9999px, 75px, 0); }
+    55% { clip: rect(28px, 9999px, 86px, 0); }
+    60% { clip: rect(67px, 9999px, 91px, 0); }
+    65% { clip: rect(11px, 9999px, 92px, 0); }
+    70% { clip: rect(7px, 9999px, 61px, 0); }
+    75% { clip: rect(4px, 9999px, 71px, 0); }
+    80% { clip: rect(98px, 9999px, 20px, 0); }
+    85% { clip: rect(67px, 9999px, 48px, 0); }
+    90% { clip: rect(33px, 9999px, 1px, 0); }
+    95% { clip: rect(16px, 9999px, 7px, 0); }
+    100% { clip: rect(83px, 9999px, 55px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { clip: rect(59px, 9999px, 89px, 0); }
+    5% { clip: rect(42px, 9999px, 34px, 0); }
+    10% { clip: rect(35px, 9999px, 6px, 0); }
+    15% { clip: rect(94px, 9999px, 67px, 0); }
+    20% { clip: rect(17px, 9999px, 95px, 0); }
+    25% { clip: rect(69px, 9999px, 3px, 0); }
+    30% { clip: rect(33px, 9999px, 86px, 0); }
+    35% { clip: rect(2px, 9999px, 19px, 0); }
+    40% { clip: rect(78px, 9999px, 10px, 0); }
+    45% { clip: rect(90px, 9999px, 50px, 0); }
+    50% { clip: rect(3px, 9999px, 84px, 0); }
+    55% { clip: rect(17px, 9999px, 37px, 0); }
+    60% { clip: rect(91px, 9999px, 100px, 0); }
+    65% { clip: rect(86px, 9999px, 42px, 0); }
+    70% { clip: rect(61px, 9999px, 69px, 0); }
+    75% { clip: rect(54px, 9999px, 84px, 0); }
+    80% { clip: rect(51px, 9999px, 19px, 0); }
+    85% { clip: rect(27px, 9999px, 12px, 0); }
+    90% { clip: rect(86px, 9999px, 30px, 0); }
+    95% { clip: rect(31px, 9999px, 17px, 0); }
+    100% { clip: rect(48px, 9999px, 2px, 0); }
 }
 
 /* =========================================
